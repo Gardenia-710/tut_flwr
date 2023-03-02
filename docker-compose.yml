@@ -44,3 +44,10 @@ services:
     networks:
       fl:
         ipv4_address: 192.168.9.12
+
+networks:
+  fl:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.9.0/24
