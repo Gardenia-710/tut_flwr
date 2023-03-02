@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fl-server
+    hostname: fl-server
+    restart: always
+    tty: true
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    networks:
+      fl:
+        ipv4_address: 192.168.9.10
+
+  client1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fl-client1
+    hostname: fl-client1
+    restart: always
+    tty: true
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    networks:
+      fl:
+        ipv4_address: 192.168.9.11
+
+  client2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fl-client2
+    hostname: fl-client2
+    restart: always
+    tty: true
+    volumes:
+      - ./src:/src
+    working_dir: /src
+    networks:
+      fl:
+        ipv4_address: 192.168.9.12
